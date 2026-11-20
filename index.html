@@ -34,7 +34,7 @@ textarea{width:100%;height:70px;background:var(--card);color:var(--fg);border:1p
 </head>
 <body>
 <h1>NSE + BSE Screener</h1>
-<div class="mut" id="info">Abhi koi data nahi hai.</div>
+<div class="mut" id="info">Abhi koi data nahi hai. (page v2)</div>
 
 <div class="row">
   <label class="btn" for="file">Data file chuno (screener_data.json)</label>
@@ -158,9 +158,13 @@ $("tv").addEventListener("click", async () => {
 
 (async () => {
   try {
-    const r = await fetch("screener_data.json?t=" + Date.now());
-    if (r.ok) { load(await r.json()); return; }
-  } catch (err) {}
+    const r = await fetch("docs/screener_data.json?t=" + Date.now());
+    if (!r.ok) throw new Error("file nahi mili (HTTP " + r.status + ")");
+    load(await r.json());
+    return;
+  } catch (err) {
+    $("info").textContent = "Data load nahi hua: " + err.message;
+  }
   try { const s = localStorage.getItem("screener_data"); if (s) load(JSON.parse(s)); } catch (err) {}
 })();
 (async () => {
