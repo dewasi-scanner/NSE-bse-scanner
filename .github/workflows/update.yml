@@ -1,6 +1,4 @@
-          git commit -m "Update data" || echo "No changes"
-          git pull --rebase origin main
-          git pushname: Update screener data
+name: Update screener data
 
 on:
   schedule:
