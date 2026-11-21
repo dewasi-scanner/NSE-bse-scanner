@@ -1,4 +1,6 @@
-name: Update screener data
+          git commit -m "Update data" || echo "No changes"
+          git pull --rebase origin main
+          git pushname: Update screener data
 
 on:
   schedule:
@@ -56,4 +58,4 @@ jobs:
           git add docs/screener_data.json
           git commit -m "Update data" || echo "No changes"
           git pull --rebase origin main
-          git push://github.com/dewasi-scanner/NSE-bse-scanner/edit/main/.github/workflows/update.yml
+          git push
