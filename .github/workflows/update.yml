@@ -55,4 +55,5 @@ jobs:
           git config user.email "github-actions@users.noreply.github.com"
           git add docs/screener_data.json
           git commit -m "Update data" || echo "No changes"
-          git push
+          git pull --rebase origin main
+          git push://github.com/dewasi-scanner/NSE-bse-scanner/edit/main/.github/workflows/update.yml
